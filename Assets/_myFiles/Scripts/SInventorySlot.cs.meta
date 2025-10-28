@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b05ceae3bf855ed478aff7b28fbac9cf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ItemData: {instanceID: 0}
+  - DataItem: {instanceID: 0}
+  - mSFX: {instanceID: 0}
+  - mActivatePress: {fileID: 8300000, guid: 77f5719f6024dec4fa68df9cf684d79c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
