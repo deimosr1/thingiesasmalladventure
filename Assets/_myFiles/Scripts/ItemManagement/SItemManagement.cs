@@ -1,13 +1,18 @@
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class SItemManagement : MonoBehaviour
 {
     [SerializeField] private SInventory mInventory;
 
+    [SerializeField] private List<GameObject> mItemsInScene = new List<GameObject>();
+
     private void Start()
     {
         mInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<SInventory>();
+        mItemsInScene = GameObject.FindGameObjectsWithTag("ITEM").OfType<GameObject>().ToList();
 
         if (mInventory.ItemPickedup != null)
         {
@@ -15,22 +20,24 @@ public class SItemManagement : MonoBehaviour
             foreach (SItemProfile item in mInventory.ItemPickedup)
             {
                 string itemID = item.ItemID;
-                var it = GameObject.FindGameObjectWithTag("ITEM").GetComponentInChildren<SPickup>();
-                string ID = it.CheckItemProfile();
                 Debug.Log($"Item ID is {itemID}");
-                Debug.Log(it);
-                Debug.Log(ID);
 
-                if (ID == itemID)
+                foreach (GameObject groundItem in mItemsInScene)
                 {
-                    Debug.Log($"Deleting Item with ID {ID}");
-                    Destroy(it.gameObject);
-                }
+                    if (groundItem == null){continue;}
 
-                else
-                {
-                    Destroy(it.gameObject);
+                    SPickup it = groundItem.GetComponent<SPickup>();
+                    string ID = it.CheckItemProfile();
+
+                    if (ID == itemID)
+                    {
+                        Debug.Log($"Deleting Item with ID {ID}");
+                        Destroy(groundItem);
+                    }
+                    Debug.Log($"Reached End of Foreach loop of ground Items");
                 }
+                Debug.Log($"Reached End of Foreach loop");
+                mItemsInScene = GameObject.FindGameObjectsWithTag("ITEM").OfType<GameObject>().ToList();
             }
         }
     }
