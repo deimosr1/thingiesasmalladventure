@@ -17,6 +17,7 @@ public class SPlayerPrefs : MonoBehaviour
 
     public void SaveVolume(float volume)
     {
+        Debug.Log($"Saving volume to: {volume}");
         PlayerPrefs.SetFloat("Volume", volume);
     }
 

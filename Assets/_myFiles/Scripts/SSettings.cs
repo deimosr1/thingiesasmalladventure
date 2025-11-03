@@ -48,6 +48,10 @@ public class SSettings : MonoBehaviour
         mResDropdown.AddOptions(options);
         mResDropdown.value = currentResIndex;
         mResDropdown.RefreshShownValue();
+
+        SetVolume(mSettingsPrefs.Volume);
+        SetQuality(mSettingsPrefs.Quality);
+        SetRes(mSettingsPrefs.Resolution);
     }
     public void SetVolume(float volume)
     {
