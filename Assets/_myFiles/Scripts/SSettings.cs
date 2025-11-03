@@ -17,6 +17,9 @@ public class SSettings : MonoBehaviour
 
     private void Start()
     {
+        //Getting Refs
+        mSettingsPrefs = GetComponent<SPlayerPrefs>();
+        mSettingsPrefs.GetRefs();
         //Establishing Player Prefs
         mAudioMixer.SetFloat("Volume", mSettingsPrefs.Volume);
         QualitySettings.SetQualityLevel(mSettingsPrefs.Quality);
@@ -49,7 +52,7 @@ public class SSettings : MonoBehaviour
     public void SetVolume(float volume)
     {
         mAudioMixer.SetFloat("Volume", volume);
-        Debug.Log(volume);
+        //Debug.Log(volume);
         mSettingsPrefs.SaveVolume(volume);
     }
 

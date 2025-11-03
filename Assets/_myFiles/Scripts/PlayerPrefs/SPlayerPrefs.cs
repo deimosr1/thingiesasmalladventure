@@ -8,11 +8,11 @@ public class SPlayerPrefs : MonoBehaviour
     public int Resolution;
     public int Quality;
 
-    private void Start()
+    public void GetRefs()
     {
-        PlayerPrefs.GetFloat("Volume", Volume);
-        PlayerPrefs.GetInt("Quality", Quality);
-        PlayerPrefs.GetInt("Resolution", Resolution);
+        Volume = PlayerPrefs.GetFloat("Volume");
+        Quality = PlayerPrefs.GetInt("Quality");
+        Resolution = PlayerPrefs.GetInt("Resolution");
     }
 
     public void SaveVolume(float volume)
@@ -22,7 +22,7 @@ public class SPlayerPrefs : MonoBehaviour
 
     public void SaveQuality(int quality)
     {
-        PlayerPrefs.SetInt("Quality", Quality);
+        PlayerPrefs.SetInt("Quality", quality);
     }
 
     public void SaveRes(int resolution)
