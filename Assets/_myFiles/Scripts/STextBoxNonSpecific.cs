@@ -10,7 +10,7 @@ public class STextBoxNonSpecific : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mTextBox;
     public bool DuringTalk = false;
     [SerializeField] private bool bTalking = false;
-    [SerializeField] private float charactersPerSecond = 10.0f;
+    [SerializeField] private float charactersPerSecond = 30.0f;
     [SerializeField] private int mInteractedCount = 0;
 
     IEnumerator TypeText(string line)

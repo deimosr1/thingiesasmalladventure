@@ -15,6 +15,10 @@ public class SSettings : MonoBehaviour
 
     [SerializeField] private SPlayerPrefs mSettingsPrefs;
 
+    //To Update the UI
+    [SerializeField] private Slider mVolumeSlider;
+    [SerializeField] private TMP_Dropdown mQualityDropdown;
+
     private void Start()
     {
         //Getting Refs
@@ -52,12 +56,14 @@ public class SSettings : MonoBehaviour
         SetVolume(mSettingsPrefs.Volume);
         SetQuality(mSettingsPrefs.Quality);
         SetRes(mSettingsPrefs.Resolution);
+        
     }
     public void SetVolume(float volume)
     {
         mAudioMixer.SetFloat("Volume", volume);
         //Debug.Log(volume);
         mSettingsPrefs.SaveVolume(volume);
+        mVolumeSlider.value = volume;
     }
 
     public void SetFullScreen(bool isFullscreen)
@@ -69,6 +75,7 @@ public class SSettings : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(qualityIndex);
         mSettingsPrefs.SaveQuality(qualityIndex);
+        mQualityDropdown.value = qualityIndex;
     }
 
     public void SetRes(int resIndex)
@@ -76,6 +83,7 @@ public class SSettings : MonoBehaviour
         Resolution resolution = mResolutions[resIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         mSettingsPrefs.SaveRes(resIndex);
+        mResDropdown.value = resIndex;
     }
 
     public void ResetPrefs()

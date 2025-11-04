@@ -23,8 +23,11 @@ public class SDataPersistenceManager : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Found more than one Data Persistence Manager in scene.");
         }
-        DataInstance = this;
-        DontDestroyOnLoad(this.gameObject);
+        else
+        {
+            DataInstance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     private void Start()

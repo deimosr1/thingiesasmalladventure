@@ -3104,6 +3104,8 @@ MonoBehaviour:
   mAudioMixer: {fileID: 24100000, guid: 3e6e4a7d00a00a8429d458ad28bb3975, type: 2}
   mResDropdown: {fileID: 1476119723}
   mSettingsPrefs: {fileID: 846167611}
+  mVolumeSlider: {fileID: 1506902502}
+  mQualityDropdown: {fileID: 1299754093}
 --- !u!114 &846167609
 MonoBehaviour:
   m_ObjectHideFlags: 0
